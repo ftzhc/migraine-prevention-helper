@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>片頭痛 予防薬えらびの目安ツール（スタッフ用）</title>
+<style>
+:root{
+  --bg:#f4f3ee;
+  --panel:#ffffff;
+  --ink:#26302e;
+  --muted:#5f6967;
+  --line:#d9ddd8;
+  --primary:#2f6f6a;
+  --primary-soft:#e3efed;
+  --good:#3b7f6a;
+  --good-soft:#e2f0ea;
+  --mid:#9a7b2a;
+  --mid-soft:#f6efd9;
+  --warn:#b4582e;
+  --warn-soft:#fbe9df;
+  --danger:#a4423a;
+  --danger-soft:#f7e3e1;
+  --grey:#8b9190;
+  --grey-soft:#ececea;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{font-size:18px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+.wrap{max-width:1280px;margin:0 auto;padding:0 16px}
+h1,h2,h3,h4{line-height:1.35;margin:0}
+p{margin:0 0 .6em}
+a{color:var(--primary)}
+
+/* ---------- ヘッダー ---------- */
+.site-header{background:var(--primary);color:#fff;padding:22px 0 20px}
+.site-header .clinic{font-size:.9rem;opacity:.9;margin:0 0 4px}
+.site-header h1{font-size:1.65rem;font-weight:700}
+.site-header .lead{margin:8px 0 12px;font-size:1rem;opacity:.95}
+.notice{
+  background:#fff8e6;color:#4a3b12;border:2px solid #e2c777;border-radius:var(--radius);
+  padding:12px 16px;font-weight:600;font-size:1rem;line-height:1.6;
+}
+.site-header .notice{margin:0}
+
+/* ---------- 2カラム ---------- */
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding:20px 16px 40px}
+@media (min-width:980px){
+  .layout{grid-template-columns:minmax(380px,5fr) minmax(0,7fr);align-items:start}
+}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 22px}
+.panel h2{font-size:1.3rem;color:var(--primary);padding-bottom:8px;border-bottom:2px solid var(--primary-soft);margin-bottom:12px}
+.hint{color:var(--muted);font-size:.92rem}
+
+/* ---------- 入力フォーム ---------- */
+fieldset{border:1px solid var(--line);border-radius:12px;padding:12px 14px 6px;margin:0 0 14px;min-width:0}
+legend{font-weight:700;color:var(--primary);padding:0 6px;font-size:1.05rem}
+.field{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:6px 0 10px}
+.field label{flex:1 1 220px}
+.field input[type=number]{
+  width:120px;min-height:46px;font-size:1.1rem;padding:6px 10px;border:1px solid #b7bdbb;border-radius:10px;
+  background:#fff;color:var(--ink);
+}
+.field .unit{color:var(--muted)}
+input:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #7fb3ad;outline-offset:2px}
+.sub{font-weight:600;margin:8px 0 4px}
+.choices{display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:10px}
+.check,.radio{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:46px;padding:6px 14px 6px 10px;border:1px solid var(--line);border-radius:999px;background:#fafaf8;
+  cursor:pointer;user-select:none;line-height:1.3;
+}
+.check:hover,.radio:hover{border-color:var(--primary)}
+.check input,.radio input{width:1.35em;height:1.35em;margin:0;accent-color:var(--primary);flex:none}
+.check:has(input:checked),.radio:has(input:checked){background:var(--primary-soft);border-color:var(--primary);font-weight:600}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:48px;padding:8px 20px;border-radius:12px;border:2px solid var(--primary);
+  background:var(--primary);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;text-decoration:none;
+}
+.btn.secondary{background:#fff;color:var(--primary)}
+.btn.small{min-height:40px;padding:4px 14px;font-size:.95rem;font-weight:600}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.to-results{display:none}
+@media (max-width:979px){.to-results{display:inline-flex}}
+details.samples{margin-top:16px;border-top:1px dashed var(--line);padding-top:10px}
+details.samples summary{cursor:pointer;color:var(--muted);font-size:.95rem}
+details.samples .btn-row{margin-top:10px}
+
+/* ---------- 結果 ---------- */
+.results-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.results-head .src{color:var(--muted);font-size:.9rem}
+.status{color:var(--muted);font-size:.9rem;margin:4px 0 10px}
+.alert{
+  border-radius:12px;padding:12px 14px 12px 16px;margin:0 0 12px;border-left:8px solid var(--grey);background:var(--grey-soft);
+}
+.alert h3{font-size:1.05rem;margin-bottom:2px}
+.alert p{margin:0}
+.alert.danger{border-left-color:var(--danger);background:var(--danger-soft)}
+.alert.danger h3{color:var(--danger)}
+.alert.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.alert.warn h3{color:var(--warn)}
+.alert.ok{border-left-color:var(--good);background:var(--good-soft)}
+.alert.ok h3{color:var(--good)}
+.alert.info{border-left-color:var(--primary);background:var(--primary-soft)}
+.alert.info h3{color:var(--primary)}
+
+.legend{font-size:.9rem;color:var(--muted);margin:14px 0 10px}
+.legend .badge{vertical-align:middle}
+
+.card{
+  background:var(--panel);border:1px solid var(--line);border-left:10px solid var(--good);
+  border-radius:var(--radius);padding:16px 18px 14px;margin:0 0 14px;
+}
+.card.mid{border-left-color:var(--mid)}
+.card.low{border-left-color:var(--grey)}
+.card.excluded{border-left-color:var(--grey);background:var(--grey-soft);color:var(--muted)}
+.card-head{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 14px}
+.card-head .rank{
+  flex:none;width:2.1em;height:2.1em;border-radius:50%;background:var(--primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;margin-top:3px;
+}
+.card.excluded .rank{background:var(--grey)}
+.card-head .names{flex:1 1 220px;min-width:0}
+.card-head h3{font-size:1.3rem}
+.card-head .brand{display:inline-block;font-size:1rem;font-weight:500;color:var(--muted)}
+.card-head .class{color:var(--muted);font-size:.92rem}
+.score{flex:none;text-align:right;line-height:1}
+.score .num{font-size:2.3rem;font-weight:700}
+.score .pct{font-size:1.1rem;font-weight:700;margin-left:2px}
+.score .lbl{display:block;font-size:.78rem;color:var(--muted);margin-top:4px}
+.bar{height:14px;background:#e6e8e5;border-radius:7px;overflow:hidden;margin:10px 0 10px}
+.bar-fill{height:100%;background:var(--good);border-radius:7px;transition:width .25s}
+.card.mid .bar-fill{background:var(--mid)}
+.card.low .bar-fill,.card.excluded .bar-fill{background:var(--grey)}
+.badges{display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:10px}
+.badge{display:inline-block;padding:2px 11px;border-radius:999px;font-size:.85rem;font-weight:700;line-height:1.6;border:1px solid transparent;white-space:nowrap}
+.b-grade{background:var(--primary-soft);color:var(--primary);border-color:#bcd8d4}
+.b-ok{background:var(--good-soft);color:var(--good);border-color:#b9d9cc}
+.b-cond{background:var(--mid-soft);color:#7a5f17;border-color:#e3d3a1}
+.b-off{background:var(--warn-soft);color:var(--warn);border-color:#ebc3ad}
+.b-caution{background:var(--mid-soft);color:#7a5f17;border-color:#e3d3a1}
+.b-strong{background:var(--warn-soft);color:var(--warn);border-color:#ebc3ad}
+.b-excl{background:#dfe1df;color:#4e5452;border-color:#c7cbc8}
+.b-tried{background:#e8e6f1;color:#4c4470;border-color:#cbc5de}
+.b-check{background:#f1f1f1;color:#555;border-color:#d5d5d5}
+.excl-box{background:#fff;border:1px solid #cfd3d1;border-radius:10px;padding:10px 12px;margin-bottom:10px;color:var(--ink)}
+.excl-box strong{color:var(--danger)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 10px;font-size:.98rem}
+.kv dt{font-weight:700;color:var(--muted);white-space:nowrap}
+.kv dd{margin:0}
+.card h4{font-size:1rem;color:var(--primary);margin:10px 0 4px}
+.card.excluded h4{color:var(--muted)}
+.reasons{list-style:none;margin:0;padding:0}
+.reasons li{display:flex;gap:10px;align-items:baseline;padding:3px 0;border-bottom:1px dotted #e1e4e1}
+.reasons li:last-child{border-bottom:none}
+.reasons .pt{flex:none;min-width:3.4em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.reasons .plus{color:var(--good)}
+.reasons .minus{color:var(--warn)}
+.reasons .zero{color:var(--muted)}
+.reasons .base{color:var(--muted)}
+.reasons .tag{flex:none;font-size:.8rem;padding:0 8px;border-radius:999px;background:#eef0ee;color:#555;line-height:1.6;white-space:nowrap}
+.reasons .tag.caution{background:var(--mid-soft);color:#7a5f17}
+.reasons .tag.strong{background:var(--warn-soft);color:var(--warn)}
+.card .side{font-size:.98rem}
+.card details{margin-top:8px}
+.card summary{cursor:pointer;color:var(--primary);font-weight:600}
+.card.excluded summary{color:var(--muted)}
+.card details ul{margin:6px 0 0;padding-left:1.3em}
+
+/* ---------- フッター ---------- */
+.site-footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:.95rem}
+.site-footer .notice{margin-bottom:14px}
+.site-footer ul{margin:8px 0 0;padding-left:1.3em}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-weight:600}
+
+@media (max-width:480px){
+  html{font-size:17px}
+  .site-header h1{font-size:1.4rem}
+  .score .num{font-size:2rem}
+  .panel{padding:14px 12px 18px}
+}
+@media print{
+  .site-header,.inputs,.to-results,.btn,details.samples{display:none !important}
+  .layout{display:block;padding:0}
+  .card{break-inside:avoid;border:1px solid #999}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="clinic">福岡天神頭痛と肺のクリニック　医師・スタッフ用（下書き版）</p>
+    <h1>片頭痛 予防薬えらびの目安ツール</h1>
+    <p class="lead">患者さんの条件を入れると、片頭痛の予防薬ごとに「入力した条件にどれだけ合うか」を 0〜100% で計算し、高い順に理由とともに表示します。</p>
+    <div class="notice">このツールは診察の補助です。%は入力条件に合う度合いの目安で、効果の確率ではありません。処方は医師が判断します。</div>
+  </div>
+</header>
+
+<main class="wrap layout">
+  <!-- ===================== 入力 ===================== -->
+  <section class="panel inputs" aria-labelledby="inputs-title">
+    <h2 id="inputs-title">患者さんの条件を入力</h2>
+    <p class="hint">入力すると結果（パソコンでは右側、スマホでは下側）がすぐに更新されます。入力した内容はこの画面の中だけで使い、保存も送信もしません。</p>
+
+    <form id="form" autocomplete="off" novalidate>
+      <fieldset>
+        <legend>1. 頭痛の状況</legend>
+        <div class="field">
+          <label for="attacks">月の片頭痛発作の回数</label>
+          <input type="number" id="attacks" min="0" max="31" step="1" inputmode="numeric"><span class="unit">回／月</span>
+        </div>
+        <div class="field">
+          <label for="disabling">生活に支障が出る頭痛の月の日数</label>
+          <input type="number" id="disabling" min="0" max="31" step="1" inputmode="numeric"><span class="unit">日／月</span>
+        </div>
+        <div class="field">
+          <label for="hdays">月の頭痛日数（片頭痛以外も含めた、頭痛のあった日）</label>
+          <input type="number" id="hdays" min="0" max="31" step="1" inputmode="numeric"><span class="unit">日／月</span>
+        </div>
+        <p class="sub">発作の重さ</p>
+        <div class="choices" role="radiogroup" aria-label="発作の重さ">
+          <label class="radio"><input type="radio" name="severity" value="軽い">軽い</label>
+          <label class="radio"><input type="radio" name="severity" value="中くらい">中くらい</label>
+          <label class="radio"><input type="radio" name="severity" value="重い">重い・寝込む</label>
+        </div>
+        <p class="sub">急性期治療薬（トリプタンなど）で十分に効かない・使えない</p>
+        <div class="choices" role="radiogroup" aria-label="急性期治療薬で十分に効かない・使えない">
+          <label class="radio"><input type="radio" name="acute" value="yes">はい</label>
+          <label class="radio"><input type="radio" name="acute" value="no" checked>いいえ</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. 年齢</legend>
+        <div class="field">
+          <label for="age">年齢</label>
+          <input type="number" id="age" min="0" max="120" step="1" inputmode="numeric"><span class="unit">歳</span>
+        </div>
+        <p class="hint">18歳未満・65歳以上では、一部の薬に自動で注意がつきます。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. 妊娠・授乳</legend>
+        <div class="choices">
+          <label class="check"><input type="checkbox" data-cond="妊娠中">妊娠中</label>
+          <label class="check"><input type="checkbox" data-cond="妊娠の可能性">妊娠の可能性がある</label>
+          <label class="check"><input type="checkbox" data-cond="妊娠希望">妊娠を希望している</label>
+          <label class="check"><input type="checkbox" data-cond="授乳中">授乳中</label>
+        </div>
+        <p class="hint">妊娠できる年齢の女性では「妊娠の可能性がある」のチェックも検討してください。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 持病</legend>
+        <div class="choices">
+          <label class="check"><input type="checkbox" data-cond="高血圧">高血圧</label>
+          <label class="check"><input type="checkbox" data-cond="低血圧">低血圧</label>
+          <label class="check"><input type="checkbox" data-cond="徐脈">徐脈（脈が遅い）</label>
+          <label class="check"><input type="checkbox" data-cond="喘息">喘息</label>
+          <label class="check"><input type="checkbox" data-cond="うつ">うつ</label>
+          <label class="check"><input type="checkbox" data-cond="不眠">不眠</label>
+          <label class="check"><input type="checkbox" data-cond="てんかん">てんかん</label>
+          <label class="check"><input type="checkbox" data-cond="緑内障">緑内障</label>
+          <label class="check"><input type="checkbox" data-cond="前立腺肥大">前立腺肥大</label>
+          <label class="check"><input type="checkbox" data-cond="肝臓の病気">肝臓の病気</label>
+          <label class="check"><input type="checkbox" data-cond="腎臓の病気">腎臓の病気</label>
+          <label class="check"><input type="checkbox" data-cond="肥満">肥満</label>
+          <label class="check"><input type="checkbox" data-cond="心臓の病気">心臓の病気</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. 副作用の気がかり・希望</legend>
+        <div class="choices">
+          <label class="check"><input type="checkbox" data-cond="眠気">眠気</label>
+          <label class="check"><input type="checkbox" data-cond="体重増加">体重増加</label>
+          <label class="check"><input type="checkbox" data-cond="めまい">めまい</label>
+          <label class="check"><input type="checkbox" data-cond="だるさ">だるさ</label>
+          <label class="check"><input type="checkbox" data-cond="注射が苦手">注射が苦手</label>
+          <label class="check"><input type="checkbox" data-cond="費用をおさえたい">費用をおさえたい</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. 鎮痛薬の使いすぎ</legend>
+        <div class="choices">
+          <label class="check"><input type="checkbox" data-cond="MOH_トリプタン複合">トリプタン・複合鎮痛薬を月10日以上使っている</label>
+          <label class="check"><input type="checkbox" data-cond="MOH_単純鎮痛薬">市販薬などの単純な鎮痛薬を月15日以上使っている</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. 既に試して効かなかった、または副作用で続けられなかった予防薬</legend>
+        <div class="choices" id="tried-list"><!-- 薬の一覧から自動で作ります --></div>
+      </fieldset>
+
+      <div class="btn-row">
+        <button type="button" class="btn secondary" id="clear-btn">入力をすべて消す</button>
+        <a class="btn to-results" href="#results">結果を見る ↓</a>
+      </div>
+
+      <details class="samples">
+        <summary>動作確認用の例を入れる（README に載せている3つの例）</summary>
+        <div class="btn-row">
+          <button type="button" class="btn small secondary" data-sample="1">例1：高血圧のある中年の方</button>
+          <button type="button" class="btn small secondary" data-sample="2">例2：喘息とうつのある若い女性</button>
+          <button type="button" class="btn small secondary" data-sample="3">例3：予防薬2種類が効かなかった月8日の方</button>
+        </div>
+      </details>
+    </form>
+  </section>
+
+  <!-- ===================== 結果 ===================== -->
+  <section class="panel results" id="results" aria-labelledby="results-title">
+    <div class="results-head">
+      <h2 id="results-title">結果（条件に合う度合いの目安）</h2>
+      <span class="src">出典：頭痛の診療ガイドライン2021（予防療法の章 CQ II-3-1〜3）</span>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div id="alerts"></div>
+    <p class="legend">
+      表示順は%の高い順です。<span class="badge b-excl">使えない可能性</span>の薬は 0% にして一番下に灰色で表示します。
+      <span class="badge b-caution">注意</span>＝慎重に使う条件に当たるため減点、
+      <span class="badge b-strong">強い注意</span>＝妊娠などで特に慎重、
+      <span class="badge b-tried">試し済み</span>＝既に試して効かなかった・続けられなかった薬。<br>
+      推奨グレード：A＝行うよう強く勧められる、B＝行うよう勧められる、C＝考慮してもよい。
+      効果の group：1＝有効、2＝ある程度有効、3＝経験的に有効（ガイドラインの表にもとづく）。
+    </p>
+    <div id="cards"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="notice">このツールは診察の補助です。%は入力条件に合う度合いの目安で、効果の確率ではありません。処方は医師が判断します。</div>
+    <p><strong>出典：頭痛の診療ガイドライン2021</strong>（日本神経学会・日本頭痛学会・日本神経治療学会 監修）予防療法の章（CQ II-3-1〜3）の要点を、このツール用に言いかえてまとめています。原文の引用ではありません。</p>
+    <ul>
+      <li>薬の情報・禁忌・点数のルール・注意書きは<strong>下書き</strong>です。公開前に医師の確認が必要です。</li>
+      <li>入力した内容は保存も送信もしません（画面を閉じると消えます）。</li>
+      <li>2021年以降に承認・改訂された情報は反映していない可能性があります。</li>
+    </ul>
+    <div class="meta">
+      <span>最終更新日：<span id="updated"></span></span>
+      <span>医師確認：<span id="reviewed"></span></span>
+      <span>福岡天神頭痛と肺のクリニック　院内用</span>
+    </div>
+  </div>
+</footer>
+<script>
+/* =====================================================================================
+   【医師の方へ】ここから「DATA」の終わりまでが、薬の情報と点数のルールです。
+   数字や文章を直すときは、この DATA の中だけを直してください（下のプログラム部分は触らなくて大丈夫です）。
+
+   ■ 全体の考え方
+     ・%は「効く確率」ではなく、「入力した条件にどれだけ合うか」の目安です。
+     ・薬ごとに「基本点」から出発し、条件に当たるごとに点を足したり引いたりして、最後に 0〜100 にそろえます。
+     ・「禁忌」に当たった薬は 0% にして、灰色で「使えない可能性」と表示します。
+
+   ■ 薬ごとの項目
+     基本点   … その薬の出発点。推奨グレードA＝70、B＝50、呉茱萸湯（グレード空欄）＝30 を目安にしています。
+     用量     … 1日量の目安（カードにそのまま表示）
+     保険     … 区分（「適用」「条件あり」「審査上可」「適用外」「要確認」）と説明文
+     副作用   … 主な副作用（カードにそのまま表示）
+     補足     … カードの「補足・注意事項」に出る文章の一覧
+     調整     … 条件に当たったときの加点・減点のルール（下記）
+
+   ■ 調整（ルール）の書き方
+     { 条件: '高血圧', 種類: '加点', 点: 20, 理由: '高血圧の治療にもなるため' }
+       条件 … 画面のチェック項目の名前（下の一覧から選ぶ）
+       種類 … 「加点」「減点」「注意」「強い注意」「禁忌」「注記」のどれか
+                加点／減点   … 点を足す／引く（「注意」の表示はしない。希望・気がかりに使う）
+                注意         … 点を引いて、カードに「注意」と表示（慎重に使う条件）
+                強い注意     … 点を引いて、カードに「強い注意」と表示（妊娠など）
+                禁忌         … その薬を 0% にして「使えない可能性」と表示（点は使わない）
+                注記         … 点は変えず、理由の欄にメモを表示（点は 0 にしておく）
+       点   … 足す点はプラス、引く点はマイナスで書く
+       理由 … カードに表示する文章
+
+   ■ 使える「条件」の名前（画面のチェック項目と対応しています）
+       持病        ：高血圧、低血圧、徐脈、喘息、うつ、不眠、てんかん、緑内障、前立腺肥大、肝臓の病気、腎臓の病気、肥満、心臓の病気
+       気がかり    ：眠気、体重増加、めまい、だるさ、注射が苦手、費用をおさえたい
+       妊娠・授乳  ：妊娠中、妊娠の可能性、妊娠希望、授乳中、妊娠関連（←上の3つのどれかにチェックがあると自動で付く）
+       鎮痛薬      ：MOH_トリプタン複合、MOH_単純鎮痛薬、鎮痛薬の使いすぎ（←どちらかにチェックがあると自動で付く）
+       年齢（自動）：小児（18歳未満）、若年（25歳未満）、高齢（65歳以上）  ※区切りの歳は「共通」で変えられます
+
+   ■ 「試し済み」の減点と「抗CGRP抗体の保険条件」の点は、「共通」の中の数字で変えます。
+   ===================================================================================== */
+const DATA = {
+  更新日: '2026-11-05',   // 画面の下に表示する「最終更新日」
+  医師確認: '未',          // 医師が確認したら「済（2026-xx-xx 〇〇）」などに書きかえる
+
+  // ---------- 全体に共通する数字 ----------
+  共通: {
+    // 予防療法を検討する目安（ガイドライン：発作が月2回以上、または生活に支障が出る頭痛が月3日以上）
+    予防療法の目安: { 月の発作回数: 2, 支障のある頭痛の月の日数: 3 },
+
+    // 鎮痛薬の使いすぎの目安（画面の文章に使います）
+    MOHの目安: { トリプタン複合鎮痛薬の月の使用日数: 10, 単純鎮痛薬の月の使用日数: 15 },
+
+    // 月の頭痛日数がこの日数以上なら「慢性片頭痛の可能性」の注意を出す
+    慢性片頭痛の目安_月の頭痛日数: 15,
+
+    // 年齢の区切り（この歳で自動の条件が付く）
+    年齢の区切り: { 小児: 18, 若年: 25, 高齢: 65 },
+
+    // 既に試して効かなかった・続けられなかった薬の減点
+    試し済みの減点: -40,
+
+    // 抗CGRP抗体を保険で使う条件の目安
+    //   月の片頭痛日数は、このツールでは「月の頭痛日数」の入力を目安として使います（要確認）
+    抗CGRP抗体の保険条件: {
+      月の片頭痛日数の目安: 4,                 // この日数以上
+      条件を満たすときの加点: 15,              // 既存の飲み薬の予防薬が「試し済み」のとき
+      禁忌で使えない薬があるときの加点: 5,     // 試し済みはないが、飲み薬の予防薬に禁忌（0%）のものがあるとき（要確認）
+      満たさないときの減点: -30,               // 上のどちらにも当たらないとき
+    },
+  },
+
+  // ---------- 薬の一覧（上から順に表示の基準になります。同じ%のときはこの順） ----------
+  薬: [
+    // ===== 抗CGRP抗体（注射） =====
+    {
+      id: 'galcanezumab',
+      名前: 'ガルカネズマブ', 商品名: 'エムガルティ',
+      分類: '抗CGRP抗体（皮下注射）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '初回 240mg、その後 120mg を月1回、皮下注射',
+      保険: { 区分: '条件あり', 説明: '保険適用（片頭痛発作の発症抑制）。ただし使うための条件がある：月4日以上の片頭痛日数、既存の予防薬が効かない・使えない、処方する医師・施設の要件など（要確認）。薬の値段が高い。' },
+      副作用: '注射した部位の痛み・赤み・かゆみ、便秘、めまい、過敏症（まれ）',
+      補足: [
+        '効果の判定は投与開始から3か月を目安にし、効果がなければ中止を検討する（要確認）',
+        '鎮痛薬の使いすぎがある場合は、その見直しも並行して行う（保険の条件にも関わる・要確認）',
+        '在宅での自己注射の扱い（できるかどうか・条件）は要確認',
+        '2021年以降の情報（長期の安全性、薬の切り替えなど）は要確認',
+      ],
+      抗CGRP抗体: true,
+      既存の飲み薬の予防薬: false,
+      調整: [
+        { 条件: '注射が苦手',     種類: '減点',     点: -25, 理由: '注射が苦手なため（注射薬）' },
+        { 条件: '費用をおさえたい', 種類: '減点',   点: -25, 理由: '費用をおさえたいため（薬の値段が高い）' },
+        { 条件: '妊娠中',         種類: '強い注意', 点: -40, 理由: '妊娠中の安全性は確立していない。抗体は胎盤を通るため、投与は避けることが望ましい' },
+        { 条件: '妊娠の可能性',   種類: '強い注意', 点: -40, 理由: '妊娠の可能性があるときの安全性は確立していない' },
+        { 条件: '妊娠希望',       種類: '強い注意', 点: -30, 理由: '体に長く残る薬（半減期は約1か月）のため、妊娠の前に中止するには時間が必要（要確認）' },
+        { 条件: '授乳中',         種類: '注意',     点: -25, 理由: '授乳中の安全性は確立していない（母乳への移行は不明）' },
+        { 条件: '小児',           種類: '禁忌',              理由: '国内では成人が対象。18歳未満での安全性は確立していない（要確認）' },
+        { 条件: '心臓の病気',     種類: '注意',     点: -10, 理由: '心臓・血管の病気がある人での安全性のデータが少ない（要確認）' },
+        { 条件: '高齢',           種類: '注意',     点: -5,  理由: '高齢者での使用経験が少ない（要確認）' },
+        { 条件: '鎮痛薬の使いすぎ', 種類: '注記',   点: 0,   理由: '鎮痛薬の使いすぎがある場合、保険の条件ではその対応も求められる（要確認）' },
+      ],
+    },
+    {
+      id: 'fremanezumab',
+      名前: 'フレマネズマブ', 商品名: 'アジョビ',
+      分類: '抗CGRP抗体（皮下注射）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '225mg を月1回、または 675mg を3か月に1回、皮下注射',
+      保険: { 区分: '条件あり', 説明: '保険適用（片頭痛発作の発症抑制）。ただし使うための条件がある：月4日以上の片頭痛日数、既存の予防薬が効かない・使えない、処方する医師・施設の要件など（要確認）。薬の値段が高い。' },
+      副作用: '注射した部位の痛み・赤み・かゆみ、便秘、過敏症（まれ）',
+      補足: [
+        '3か月に1回の投与も選べるため、通院や注射の回数を減らしたい人に向く',
+        '効果の判定は投与開始から3か月を目安にし、効果がなければ中止を検討する（要確認）',
+        '鎮痛薬の使いすぎがある場合は、その見直しも並行して行う（保険の条件にも関わる・要確認）',
+        '在宅での自己注射の扱い（できるかどうか・条件）は要確認',
+      ],
+      抗CGRP抗体: true,
+      既存の飲み薬の予防薬: false,
+      調整: [
+        { 条件: '注射が苦手',     種類: '減点',     点: -20, 理由: '注射が苦手なため（注射薬。ただし3か月に1回の投与も選べる）' },
+        { 条件: '費用をおさえたい', 種類: '減点',   点: -25, 理由: '費用をおさえたいため（薬の値段が高い）' },
+        { 条件: '妊娠中',         種類: '強い注意', 点: -40, 理由: '妊娠中の安全性は確立していない。抗体は胎盤を通るため、投与は避けることが望ましい' },
+        { 条件: '妊娠の可能性',   種類: '強い注意', 点: -40, 理由: '妊娠の可能性があるときの安全性は確立していない' },
+        { 条件: '妊娠希望',       種類: '強い注意', 点: -30, 理由: '体に長く残る薬（半減期は約1か月）のため、妊娠の前に中止するには時間が必要（要確認）' },
+        { 条件: '授乳中',         種類: '注意',     点: -25, 理由: '授乳中の安全性は確立していない（母乳への移行は不明）' },
+        { 条件: '小児',           種類: '禁忌',              理由: '国内では成人が対象。18歳未満での安全性は確立していない（要確認）' },
+        { 条件: '心臓の病気',     種類: '注意',     点: -10, 理由: '心臓・血管の病気がある人での安全性のデータが少ない（要確認）' },
+        { 条件: '高齢',           種類: '注意',     点: -5,  理由: '高齢者での使用経験が少ない（要確認）' },
+        { 条件: '鎮痛薬の使いすぎ', 種類: '注記',   点: 0,   理由: '鎮痛薬の使いすぎがある場合、保険の条件ではその対応も求められる（要確認）' },
+      ],
+    },
+    {
+      id: 'erenumab',
+      名前: 'エレヌマブ', 商品名: 'アイモビーグ',
+      分類: '抗CGRP受容体抗体（皮下注射）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '70mg を4週に1回、皮下注射',
+      保険: { 区分: '条件あり', 説明: '保険適用（片頭痛発作の発症抑制）。ただし使うための条件がある：月4日以上の片頭痛日数、既存の予防薬が効かない・使えない、処方する医師・施設の要件など（要確認）。薬の値段が高い。' },
+      副作用: '注射した部位の痛み・赤み、便秘（強いことがある）、筋肉のけいれん、血圧上昇の報告',
+      補足: [
+        '便秘が出やすい。もともと便秘がある人では注意',
+        '効果の判定は投与開始から3か月を目安にし、効果がなければ中止を検討する（要確認）',
+        '鎮痛薬の使いすぎがある場合は、その見直しも並行して行う（保険の条件にも関わる・要確認）',
+        '在宅での自己注射の扱い（できるかどうか・条件）は要確認',
+      ],
+      抗CGRP抗体: true,
+      既存の飲み薬の予防薬: false,
+      調整: [
+        { 条件: '注射が苦手',     種類: '減点',     点: -25, 理由: '注射が苦手なため（注射薬）' },
+        { 条件: '費用をおさえたい', 種類: '減点',   点: -25, 理由: '費用をおさえたいため（薬の値段が高い）' },
+        { 条件: '高血圧',         種類: '注意',     点: -5,  理由: '発売後に血圧上昇の報告があるため（要確認）' },
+        { 条件: '妊娠中',         種類: '強い注意', 点: -40, 理由: '妊娠中の安全性は確立していない。抗体は胎盤を通るため、投与は避けることが望ましい' },
+        { 条件: '妊娠の可能性',   種類: '強い注意', 点: -40, 理由: '妊娠の可能性があるときの安全性は確立していない' },
+        { 条件: '妊娠希望',       種類: '強い注意', 点: -30, 理由: '体に長く残る薬（半減期は約1か月）のため、妊娠の前に中止するには時間が必要（要確認）' },
+        { 条件: '授乳中',         種類: '注意',     点: -25, 理由: '授乳中の安全性は確立していない（母乳への移行は不明）' },
+        { 条件: '小児',           種類: '禁忌',              理由: '国内では成人が対象。18歳未満での安全性は確立していない（要確認）' },
+        { 条件: '心臓の病気',     種類: '注意',     点: -10, 理由: '心臓・血管の病気がある人での安全性のデータが少ない（要確認）' },
+        { 条件: '高齢',           種類: '注意',     点: -5,  理由: '高齢者での使用経験が少ない（要確認）' },
+        { 条件: '鎮痛薬の使いすぎ', 種類: '注記',   点: 0,   理由: '鎮痛薬の使いすぎがある場合、保険の条件ではその対応も求められる（要確認）' },
+      ],
+    },
+
+    // ===== 飲み薬（既存の予防薬） =====
+    {
+      id: 'valproate',
+      名前: 'バルプロ酸', 商品名: 'デパケン・セレニカ など',
+      分類: '抗てんかん薬（飲み薬）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '1日 400〜600mg',
+      保険: { 区分: '適用', 説明: '保険適用（片頭痛発作の発症抑制）' },
+      副作用: '眠気、体重増加、手のふるえ、脱毛、吐き気、肝機能障害、血小板減少、高アンモニア血症。妊娠中の使用で赤ちゃんの先天異常・発達への影響（催奇形性）',
+      補足: [
+        '妊娠できる年齢の女性には原則使わない。使う場合は避妊の確認が必要（要確認）',
+        'カルバペネム系抗菌薬（メロペネムなど）との併用は禁忌',
+        '定期的に血液検査（肝機能・血小板・アンモニア）を行う',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: true,
+      調整: [
+        { 条件: 'てんかん',     種類: '加点',     点: 20,  理由: 'てんかんの治療にもなるため' },
+        { 条件: '妊娠中',       種類: '禁忌',              理由: '催奇形性（赤ちゃんの先天異常・発達への影響）のため、妊娠中は使わない' },
+        { 条件: '妊娠の可能性', 種類: '禁忌',              理由: '催奇形性のため、妊娠の可能性がある人には使わない' },
+        { 条件: '妊娠希望',     種類: '禁忌',              理由: '催奇形性のため、妊娠を希望している人には使わない' },
+        { 条件: '授乳中',       種類: '注意',     点: -20, 理由: '母乳に移行する。添付文書では授乳を避けることとされている（要確認）' },
+        { 条件: '肝臓の病気',   種類: '注意',     点: -20, 理由: '肝機能障害を起こすことがある。重い肝障害では禁忌' },
+        { 条件: '肥満',         種類: '注意',     点: -10, 理由: '体重が増えやすい薬のため' },
+        { 条件: '高齢',         種類: '注意',     点: -5,  理由: '高齢者では眠気・ふるえ・ふらつきに注意' },
+        { 条件: '体重増加',     種類: '減点',     点: -20, 理由: '体重増加が気になるため（体重が増えやすい）' },
+        { 条件: '眠気',         種類: '減点',     点: -5,  理由: '眠気が気になるため（眠気を起こすことがある）' },
+        { 条件: 'だるさ',       種類: '減点',     点: -5,  理由: 'だるさが気になるため' },
+      ],
+    },
+    {
+      id: 'propranolol',
+      名前: 'プロプラノロール', 商品名: 'インデラル',
+      分類: 'β遮断薬（飲み薬）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '1日 20〜60mg',
+      保険: { 区分: '適用', 説明: '保険適用（片頭痛発作の発症抑制）' },
+      副作用: '脈が遅くなる、血圧が下がる、だるさ・疲れやすさ、めまい、手足の冷え、気管支けいれん（喘息の人）、気分の落ち込み・悪夢（まれ）',
+      補足: [
+        'リザトリプタン（マクサルト）との併用は禁忌（リザトリプタンの血中濃度が上がる）',
+        '糖尿病の人では低血糖の症状がわかりにくくなることがある',
+        '急にやめると脈が速くなるなどの反動が出ることがあるため、やめるときは徐々に減らす',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: true,
+      調整: [
+        { 条件: '高血圧',       種類: '加点',     点: 20,  理由: '高血圧の治療にもなるため' },
+        { 条件: '喘息',         種類: '禁忌',              理由: '喘息があるため（気管支けいれんを起こすおそれ）' },
+        { 条件: '徐脈',         種類: '注意',     点: -25, 理由: '脈がさらに遅くなる。高度の徐脈・房室ブロックでは禁忌' },
+        { 条件: '低血圧',       種類: '注意',     点: -25, 理由: '血圧がさらに下がる。添付文書では低血圧症は禁忌とされている（要確認）' },
+        { 条件: '心臓の病気',   種類: '注意',     点: -15, 理由: '心不全・房室ブロック・異型狭心症などでは禁忌。病気の種類によって判断（要確認）' },
+        { 条件: 'うつ',         種類: '注意',     点: -5,  理由: '気分の落ち込みやだるさを強めることがある（要確認）' },
+        { 条件: '妊娠中',       種類: '強い注意', 点: -30, 理由: '胎児の徐脈・低血糖・発育遅延の報告がある。有益性が危険性を上回るときのみ' },
+        { 条件: '妊娠の可能性', 種類: '強い注意', 点: -30, 理由: '妊娠した場合の胎児への影響（徐脈・低血糖・発育遅延の報告）に注意' },
+        { 条件: '妊娠希望',     種類: '注意',     点: -20, 理由: '妊娠した場合は続けるかどうかを見直す必要がある' },
+        { 条件: '授乳中',       種類: '注意',     点: -15, 理由: '母乳に移行する。添付文書では授乳を避けることとされている（要確認）' },
+        { 条件: '高齢',         種類: '注意',     点: -5,  理由: '高齢者では徐脈・低血圧・ふらつきに注意' },
+        { 条件: 'だるさ',       種類: '減点',     点: -15, 理由: 'だるさが気になるため（だるさ・疲れやすさを起こしやすい）' },
+        { 条件: 'めまい',       種類: '減点',     点: -10, 理由: 'めまいが気になるため（血圧低下によるふらつき）' },
+        { 条件: '体重増加',     種類: '減点',     点: -5,  理由: '体重増加が気になるため（軽い体重増加の報告）' },
+      ],
+    },
+    {
+      id: 'amitriptyline',
+      名前: 'アミトリプチリン', 商品名: 'トリプタノール',
+      分類: '三環系抗うつ薬（飲み薬）',
+      グレード: 'A', グループ: 1,
+      基本点: 70,
+      用量: '1日 10〜60mg（少量を寝る前から始める）',
+      保険: { 区分: '審査上可', 説明: '片頭痛への適応はないが、保険の審査上、片頭痛への使用が認められている（適応外だが使用可）' },
+      副作用: '眠気、口の渇き、便秘、体重増加、立ちくらみ、尿が出にくい、不整脈（QT延長）、緑内障の悪化',
+      補足: [
+        'MAO阻害薬との併用は禁忌',
+        '5〜10mg を寝る前に飲むことから始め、様子を見ながら増やす',
+        '24歳以下では抗うつ薬による自殺念慮のリスク増加の報告があり、注意して使う（要確認）',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: true,
+      調整: [
+        { 条件: 'うつ',         種類: '加点',     点: 20,  理由: 'うつの治療にもなるため' },
+        { 条件: '不眠',         種類: '加点',     点: 15,  理由: '眠気の副作用を眠りの助けとして使えるため' },
+        { 条件: '緑内障',       種類: '禁忌',              理由: '緑内障があるため（眼圧を上げるおそれ。特に閉塞隅角緑内障）' },
+        { 条件: '前立腺肥大',   種類: '禁忌',              理由: '前立腺肥大があるため（尿が出なくなるおそれ）' },
+        { 条件: '心臓の病気',   種類: '注意',     点: -20, 理由: '不整脈・QT延長・立ちくらみを起こしやすい。心筋梗塞の回復初期は禁忌' },
+        { 条件: 'てんかん',     種類: '注意',     点: -10, 理由: 'けいれんを起こしやすくすることがある' },
+        { 条件: '低血圧',       種類: '注意',     点: -10, 理由: '立ちくらみ（起立性低血圧）を起こしやすい' },
+        { 条件: '肝臓の病気',   種類: '注意',     点: -5,  理由: '肝臓で代謝される薬のため慎重に' },
+        { 条件: '肥満',         種類: '注意',     点: -10, 理由: '体重が増えやすい薬のため' },
+        { 条件: '高齢',         種類: '注意',     点: -15, 理由: '高齢者では便秘・口の渇き・尿閉・ふらつき・転倒・せん妄に注意。少量から' },
+        { 条件: '若年',         種類: '注意',     点: -5,  理由: '24歳以下では抗うつ薬による自殺念慮のリスク増加の報告（要確認）' },
+        { 条件: '妊娠中',       種類: '強い注意', 点: -30, 理由: '有益性が危険性を上回るときのみ。妊娠後期の使用で新生児の離脱症状の報告' },
+        { 条件: '妊娠の可能性', 種類: '強い注意', 点: -30, 理由: '妊娠した場合の影響に注意（有益性が危険性を上回るときのみ）' },
+        { 条件: '妊娠希望',     種類: '注意',     点: -20, 理由: '妊娠した場合は続けるかどうかを見直す必要がある' },
+        { 条件: '授乳中',       種類: '注意',     点: -15, 理由: '母乳に移行する。添付文書では授乳を避けることとされている（要確認）' },
+        { 条件: '眠気',         種類: '減点',     点: -20, 理由: '眠気が気になるため（眠気を起こしやすい）' },
+        { 条件: '体重増加',     種類: '減点',     点: -20, 理由: '体重増加が気になるため（体重が増えやすい）' },
+        { 条件: 'めまい',       種類: '減点',     点: -10, 理由: 'めまいが気になるため（立ちくらみ）' },
+        { 条件: 'だるさ',       種類: '減点',     点: -5,  理由: 'だるさが気になるため' },
+      ],
+    },
+    {
+      id: 'lomerizine',
+      名前: 'ロメリジン', 商品名: 'ミグシス',
+      分類: 'カルシウム拮抗薬（飲み薬）',
+      グレード: 'B', グループ: 2,
+      基本点: 50,
+      用量: '1日 10〜20mg（5mg を朝夕。最大 20mg）',
+      保険: { 区分: '適用', 説明: '保険適用（片頭痛）' },
+      副作用: '眠気、めまい・ふらつき、口の渇き、胃の不快感',
+      補足: [
+        '頭蓋内出血（またはその疑い）、脳梗塞の急性期では禁忌',
+        '効果の判定には2〜3か月かかることがある',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: true,
+      調整: [
+        { 条件: '妊娠中',       種類: '禁忌',              理由: '添付文書で妊婦は禁忌とされている（要確認）' },
+        { 条件: '妊娠の可能性', 種類: '禁忌',              理由: '添付文書で妊娠している可能性のある女性は禁忌とされている（要確認）' },
+        { 条件: '妊娠希望',     種類: '強い注意', 点: -30, 理由: '妊娠がわかった時点で中止が必要になるため、妊娠希望のときは避けることが望ましい（要確認）' },
+        { 条件: '授乳中',       種類: '注意',     点: -20, 理由: '添付文書では授乳を避けることとされている（要確認）' },
+        { 条件: '小児',         種類: '注意',     点: -10, 理由: '小児での安全性は確立していない' },
+        { 条件: '高齢',         種類: '注意',     点: -5,  理由: '高齢者ではふらつき・転倒に注意' },
+        { 条件: '眠気',         種類: '減点',     点: -15, 理由: '眠気が気になるため（眠気を起こすことがある）' },
+        { 条件: 'めまい',       種類: '減点',     点: -10, 理由: 'めまいが気になるため（めまい・ふらつきを起こすことがある）' },
+      ],
+    },
+    {
+      id: 'candesartan',
+      名前: 'カンデサルタン', 商品名: 'ブロプレス など',
+      分類: 'ARB（血圧の薬・飲み薬）',
+      グレード: 'B', グループ: 2,
+      基本点: 50,
+      用量: '1日 8〜12mg',
+      保険: { 区分: '適用外', 説明: '片頭痛には保険適用外（適応外）。高血圧の治療としては保険適用' },
+      副作用: '血圧低下によるめまい・立ちくらみ、高カリウム血症、腎機能の悪化、まれに咳・血管浮腫。妊娠中は胎児に影響（禁忌）',
+      補足: [
+        '高血圧がない人に片頭痛の目的で使うと適応外使用になる（説明と同意の扱いは要確認）',
+        'アリスキレンとの併用は糖尿病の人では禁忌',
+        '血液検査でカリウム・腎機能を確認する',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: false,
+      調整: [
+        { 条件: '高血圧',       種類: '加点',     点: 25,  理由: '高血圧の治療として保険で処方でき、片頭痛の予防効果も期待できるため' },
+        { 条件: '低血圧',       種類: '注意',     点: -25, 理由: '血圧がさらに下がるため' },
+        { 条件: '腎臓の病気',   種類: '注意',     点: -15, 理由: '腎機能の悪化・高カリウム血症に注意。両側の腎動脈狭窄では原則使わない' },
+        { 条件: '妊娠中',       種類: '禁忌',              理由: '胎児への影響（腎障害・羊水過少など）のため、妊娠中は禁忌' },
+        { 条件: '妊娠の可能性', 種類: '禁忌',              理由: '胎児への影響のため、妊娠の可能性がある人には使わない' },
+        { 条件: '妊娠希望',     種類: '禁忌',              理由: '胎児への影響のため、妊娠を希望している人には使わない' },
+        { 条件: '授乳中',       種類: '注意',     点: -25, 理由: '添付文書では授乳を避けることとされている（要確認）' },
+        { 条件: '小児',         種類: '注意',     点: -10, 理由: '小児の片頭痛でのデータが少ない' },
+        { 条件: '高齢',         種類: '注意',     点: -5,  理由: '高齢者では血圧の下がりすぎに注意' },
+        { 条件: 'めまい',       種類: '減点',     点: -10, 理由: 'めまいが気になるため（血圧低下によるふらつき）' },
+      ],
+    },
+
+    // ===== 漢方 =====
+    {
+      id: 'goshuyuto',
+      名前: '呉茱萸湯', 商品名: 'ツムラ呉茱萸湯 など',
+      分類: '漢方薬（飲み薬）',
+      グレード: '', グループ: '',   // ガイドラインの漢方の項の扱いは要確認のため空欄
+      基本点: 30,
+      用量: '1日 7.5g を2〜3回に分けて（製品により異なる）',
+      保険: { 区分: '要確認', 説明: '保険適用の漢方製剤。効能・効果に「習慣性の片頭痛」が含まれる製品がある（要確認）' },
+      副作用: '吐き気・胃の不快感、発疹（まれ）',
+      補足: [
+        'ガイドライン2021での位置づけ（漢方薬の項）は要確認のため、推奨グレードは空欄にしている',
+        '冷えや吐き気を伴う人に使われることが多いとされる（要確認）',
+      ],
+      抗CGRP抗体: false,
+      既存の飲み薬の予防薬: false,
+      調整: [
+        { 条件: '妊娠中',       種類: '注意',     点: -10, 理由: '漢方薬も妊娠中の安全性は確立していない' },
+        { 条件: '妊娠の可能性', 種類: '注意',     点: -10, 理由: '漢方薬も妊娠中の安全性は確立していない' },
+        { 条件: '授乳中',       種類: '注意',     点: -10, 理由: '漢方薬も授乳中の安全性は確立していない' },
+      ],
+    },
+  ],
+};
+/* ===================== DATA はここまで（医師が直すのはここまで） ===================== */
+
+/* 動作確認用の例（README に載せている3パターン）。「動作確認用の例を入れる」ボタンで使います */
+const SAMPLES = {
+  1: { attacks: 4, disabling: 4, hdays: 6, severity: '中くらい', acute: 'no',  age: 52, conds: ['高血圧'],        tried: [] },
+  2: { attacks: 3, disabling: 3, hdays: 5, severity: '中くらい', acute: 'no',  age: 28, conds: ['喘息', 'うつ'],  tried: [] },
+  3: { attacks: 5, disabling: 6, hdays: 8, severity: '重い',     acute: 'yes', age: 45, conds: [],              tried: ['propranolol', 'lomerizine'] },
+};
+
+/* =====================================================================================
+   ここから下はプログラム本体です（通常は直す必要はありません）
+   ===================================================================================== */
+(function () {
+  'use strict';
+
+  const $  = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  const form = $('#form');
+
+  // 文字をそのまま画面に出すための変換（記号を安全な形にする）
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // ---------- 「試し済み」のチェック欄を薬の一覧から作る ----------
+  (function buildTriedList() {
+    const box = $('#tried-list');
+    DATA.薬.forEach(function (d) {
+      const label = document.createElement('label');
+      label.className = 'check';
+      label.innerHTML = '<input type="checkbox" data-tried="' + esc(d.id) + '">' +
+        '<span>' + esc(d.名前) + '（' + esc(d.商品名) + '）</span>';
+      box.appendChild(label);
+    });
+  })();
+
+  // ---------- 入力を読む ----------
+  function readNumber(id) {
+    const v = $('#' + id).value.trim();
+    if (v === '') return null;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function readInputs() {
+    const conds = new Set();
+    $$('input[type=checkbox][data-cond]').forEach(function (cb) { if (cb.checked) conds.add(cb.dataset.cond); });
+    const tried = new Set();
+    $$('input[type=checkbox][data-tried]').forEach(function (cb) { if (cb.checked) tried.add(cb.dataset.tried); });
+
+    const age = readNumber('age');
+    const sevEl = form.querySelector('input[name=severity]:checked');
+    const acuteEl = form.querySelector('input[name=acute]:checked');
+
+    // 自動で付く条件
+    if (['妊娠中', '妊娠の可能性', '妊娠希望'].some(function (c) { return conds.has(c); })) conds.add('妊娠関連');
+    if (conds.has('MOH_トリプタン複合') || conds.has('MOH_単純鎮痛薬')) conds.add('鎮痛薬の使いすぎ');
+    const Y = DATA.共通.年齢の区切り;
+    if (age !== null) {
+      if (age < Y.小児) conds.add('小児');
+      if (age < Y.若年) conds.add('若年');
+      if (age >= Y.高齢) conds.add('高齢');
+    }
+
+    return {
+      conds: conds,
+      tried: tried,
+      age: age,
+      attacks: readNumber('attacks'),
+      disabling: readNumber('disabling'),
+      hdays: readNumber('hdays'),
+      severity: sevEl ? sevEl.value : '',
+      acuteFail: !!(acuteEl && acuteEl.value === 'yes'),
+    };
+  }
+
+  // ---------- 薬ごとの点数を計算する ----------
+  function evaluateDrug(drug, inp) {
+    const r = {
+      drug: drug,
+      score: drug.基本点,
+      excluded: false,
+      flags: new Set(),
+      exclReasons: [],
+      reasons: [{ kind: '基本', points: drug.基本点, text: '基本点' + (drug.グレード ? '（推奨グレード' + drug.グレード + '・group ' + drug.グループ + '）' : '（推奨グレードは空欄・要確認）') }],
+    };
+
+    (drug.調整 || []).forEach(function (rule) {
+      if (!inp.conds.has(rule.条件)) return;
+      if (rule.種類 === '禁忌') {
+        r.excluded = true;
+        r.exclReasons.push(rule.理由);
+        return;
+      }
+      const p = Number(rule.点) || 0;
+      r.score += p;
+      r.reasons.push({ kind: rule.種類, points: p, text: rule.理由 });
+      if (rule.種類 === '注意') r.flags.add('注意');
+      if (rule.種類 === '強い注意') r.flags.add('強い注意');
+    });
+
+    if (inp.tried.has(drug.id)) {
+      const p = DATA.共通.試し済みの減点;
+      r.score += p;
+      r.flags.add('試し済み');
+      r.reasons.push({ kind: '減点', points: p, text: '既に試して効かなかった、または副作用で続けられなかったため' });
+    }
+    return r;
+  }
+
+  // ---------- 抗CGRP抗体の保険条件（他の薬の結果が出てから判定する） ----------
+  function applyCgrpCondition(results, inp) {
+    const C = DATA.共通.抗CGRP抗体の保険条件;
+    const orals = results.filter(function (r) { return r.drug.既存の飲み薬の予防薬; });
+    const triedOral = orals.filter(function (r) { return inp.tried.has(r.drug.id); });
+    const contraOral = orals.filter(function (r) { return r.excluded && !inp.tried.has(r.drug.id); });
+    const names = function (list) { return list.map(function (r) { return r.drug.名前; }).join('・'); };
+    const daysOk = inp.hdays !== null && inp.hdays >= C.月の片頭痛日数の目安;
+
+    results.forEach(function (r) {
+      if (!r.drug.抗CGRP抗体) return;
+      if (inp.hdays === null) {
+        r.cgrp = 'unknown';
+        r.reasons.push({ kind: '注記', points: 0, text: '「月の頭痛日数」を入力すると、保険で使う条件（月' + C.月の片頭痛日数の目安 + '日以上の片頭痛日数など）の目安を判定します' });
+        return;
+      }
+      if (daysOk && triedOral.length) {
+        r.cgrp = 'ok';
+        r.score += C.条件を満たすときの加点;
+        r.reasons.push({ kind: '加点', points: C.条件を満たすときの加点,
+          text: '月の頭痛日数が' + C.月の片頭痛日数の目安 + '日以上で、既存の飲み薬の予防薬（' + names(triedOral) + '）が効かなかった・続けられなかったため（保険で使う条件の目安）' });
+      } else if (daysOk && contraOral.length) {
+        r.cgrp = 'maybe';
+        r.score += C.禁忌で使えない薬があるときの加点;
+        r.reasons.push({ kind: '加点', points: C.禁忌で使えない薬があるときの加点,
+          text: '月の頭痛日数が' + C.月の片頭痛日数の目安 + '日以上で、既存の飲み薬の予防薬に使えないもの（' + names(contraOral) + '）があるため（保険で使う条件に当たる可能性・要確認）' });
+      } else {
+        r.cgrp = 'no';
+        r.flags.add('保険条件');
+        r.score += C.満たさないときの減点;
+        const why = [];
+        if (!daysOk) why.push('月の頭痛日数が' + C.月の片頭痛日数の目安 + '日未満');
+        if (!triedOral.length && !contraOral.length) why.push('既存の飲み薬の予防薬が効かなかった・使えないという入力がない');
+        r.reasons.push({ kind: '減点', points: C.満たさないときの減点, text: '保険で使う条件を満たさない可能性があるため（' + why.join('、') + '）（要確認）' });
+      }
+    });
+  }
+
+  function clamp(n) { return Math.max(0, Math.min(100, Math.round(n))); }
+
+  function calculate(inp) {
+    const results = DATA.薬.map(function (d) { return evaluateDrug(d, inp); });
+    applyCgrpCondition(results, inp);
+    results.forEach(function (r, i) {
+      r.order = i;
+      r.score = r.excluded ? 0 : clamp(r.score);
+    });
+    results.sort(function (a, b) {
+      if (a.excluded !== b.excluded) return a.excluded ? 1 : -1;
+      if (b.score !== a.score) return b.score - a.score;
+      return a.order - b.order;
+    });
+    return results;
+  }
+
+  // ---------- 画面の上に出す注意 ----------
+  function buildAlerts(inp) {
+    const T = DATA.共通;
+    const alerts = [];
+
+    // 鎮痛薬の使いすぎ（MOH）
+    if (inp.conds.has('鎮痛薬の使いすぎ')) {
+      const which = [];
+      if (inp.conds.has('MOH_トリプタン複合')) which.push('トリプタン・複合鎮痛薬を月' + T.MOHの目安.トリプタン複合鎮痛薬の月の使用日数 + '日以上');
+      if (inp.conds.has('MOH_単純鎮痛薬')) which.push('単純な鎮痛薬を月' + T.MOHの目安.単純鎮痛薬の月の使用日数 + '日以上');
+      let body = '薬剤の使用過多による頭痛（MOH）の可能性があります。予防薬と並行して、鎮痛薬の使い方の見直しを検討してください。（入力：' + which.join('、') + '）';
+      if (inp.hdays !== null && inp.hdays < T.慢性片頭痛の目安_月の頭痛日数) {
+        body += ' ※MOHの診断では、頭痛が月' + T.慢性片頭痛の目安_月の頭痛日数 + '日以上あることも条件になります（要確認）。';
+      }
+      alerts.push({ level: 'danger', title: '鎮痛薬の使いすぎがあります', body: body });
+    }
+
+    // 予防療法を検討する目安
+    const need = T.予防療法の目安;
+    const a = inp.attacks, d = inp.disabling;
+    const meets = (a !== null && a >= need.月の発作回数) || (d !== null && d >= need.支障のある頭痛の月の日数);
+    if (meets) {
+      alerts.push({ level: 'ok', title: '予防療法を検討する目安に当たります',
+        body: '片頭痛発作が月' + need.月の発作回数 + '回以上、または生活に支障が出る頭痛が月' + need.支障のある頭痛の月の日数 + '日以上のどちらかに当たります（ガイドラインの目安）。' });
+    } else if (a !== null && d !== null) {
+      let body = '予防薬が必要ない可能性があります。片頭痛発作が月' + need.月の発作回数 + '回以上、または生活に支障が出る頭痛が月' + need.支障のある頭痛の月の日数 + '日以上のどちらにも当たりません。';
+      if (inp.acuteFail) body += ' ただし、急性期治療薬が十分に効かない・使えない場合は、予防療法を検討する余地があります（要確認）。';
+      if (inp.severity === '重い') body += ' 発作が重く寝込む場合も、医師の判断で予防療法を検討することがあります。';
+      alerts.push({ level: 'warn', title: '予防薬が必要ない可能性があります', body: body });
+    } else {
+      alerts.push({ level: 'info', title: '頭痛の状況を入力してください',
+        body: '「月の片頭痛発作の回数」と「生活に支障が出る頭痛の月の日数」を入れると、予防療法を検討する目安に当たるかどうかを表示します。' });
+    }
+
+    // 月15日以上の頭痛
+    if (inp.hdays !== null && inp.hdays >= T.慢性片頭痛の目安_月の頭痛日数) {
+      alerts.push({ level: 'warn', title: '頭痛が月' + T.慢性片頭痛の目安_月の頭痛日数 + '日以上あります',
+        body: '3か月以上続いていれば慢性片頭痛の可能性があります。鎮痛薬の使いすぎ（MOH）が重なっていないかも確認してください。' });
+    }
+
+    // 妊娠・授乳
+    if (inp.conds.has('妊娠関連') || inp.conds.has('授乳中')) {
+      alerts.push({ level: 'warn', title: '妊娠・授乳に関する注意',
+        body: '予防薬の多くは、妊娠中・授乳中の安全性が確立していません。生活指導など薬を使わない方法を優先し、薬は必要性をよく検討してください。使えない可能性のある薬は灰色で表示しています。' });
+    }
+
+    // 18歳未満
+    if (inp.age !== null && inp.age < T.年齢の区切り.小児) {
+      alerts.push({ level: 'info', title: '18歳未満の方です',
+        body: '小児・思春期の片頭痛予防は、成人とは薬の選び方や用量が異なります。抗CGRP抗体は成人が対象です（要確認）。' });
+    }
+
+    // 入力の確認
+    if (inp.hdays !== null && d !== null && d > inp.hdays) {
+      alerts.push({ level: 'info', title: '入力の確認', body: '生活に支障が出る頭痛の日数が、月の頭痛日数より多くなっています。入力を確認してください。' });
+    }
+    if (inp.hdays !== null && a !== null && a > inp.hdays) {
+      alerts.push({ level: 'info', title: '入力の確認', body: '発作の回数が、月の頭痛日数より多くなっています。入力を確認してください。' });
+    }
+    return alerts;
+  }
+
+  // ---------- 表示 ----------
+  const INSURANCE_BADGE = {
+    '適用':     { cls: 'b-ok',    text: '保険適用' },
+    '条件あり': { cls: 'b-cond',  text: '保険適用（条件あり）' },
+    '審査上可': { cls: 'b-cond',  text: '適応外・保険審査上は使用可' },
+    '適用外':   { cls: 'b-off',   text: '保険適用外（適応外）' },
+    '要確認':   { cls: 'b-check', text: '保険：要確認' },
+  };
+
+  function renderAlerts(alerts) {
+    $('#alerts').innerHTML = alerts.map(function (al) {
+      return '<div class="alert ' + al.level + '" role="' + (al.level === 'danger' || al.level === 'warn' ? 'alert' : 'note') + '">' +
+        '<h3>' + esc(al.title) + '</h3><p>' + esc(al.body) + '</p></div>';
+    }).join('');
+  }
+
+  function reasonLine(rs) {
+    if (rs.kind === '基本') {
+      return '<li><span class="pt base">' + esc(rs.points) + '</span><span>' + esc(rs.text) + '</span></li>';
+    }
+    const p = rs.points || 0;
+    const sign = p > 0 ? '＋' : (p < 0 ? '−' : '');
+    const cls = p > 0 ? 'plus' : (p < 0 ? 'minus' : 'zero');
+    const ptText = rs.kind === '注記' ? '※' : sign + Math.abs(p);
+    let tag = '';
+    if (rs.kind === '注意') tag = '<span class="tag caution">注意</span>';
+    if (rs.kind === '強い注意') tag = '<span class="tag strong">強い注意</span>';
+    return '<li><span class="pt ' + cls + '">' + ptText + '</span>' + tag + '<span>' + esc(rs.text) + '</span></li>';
+  }
+
+  function renderCards(results) {
+    let rank = 0;
+    $('#cards').innerHTML = results.map(function (r) {
+      const d = r.drug;
+      if (!r.excluded) rank += 1;
+      const level = r.excluded ? 'excluded' : (r.score >= 70 ? 'high' : (r.score >= 40 ? 'mid' : 'low'));
+
+      const badges = [];
+      badges.push('<span class="badge b-grade">' + (d.グレード ? '推奨グレード ' + esc(d.グレード) + '・group ' + esc(d.グループ) : '推奨グレード：空欄（要確認）') + '</span>');
+      const ins = INSURANCE_BADGE[d.保険.区分] || INSURANCE_BADGE['要確認'];
+      badges.push('<span class="badge ' + ins.cls + '">' + esc(ins.text) + '</span>');
+      if (r.excluded) badges.push('<span class="badge b-excl">使えない可能性</span>');
+      if (r.flags.has('強い注意')) badges.push('<span class="badge b-strong">強い注意</span>');
+      else if (r.flags.has('注意')) badges.push('<span class="badge b-caution">注意</span>');
+      if (r.flags.has('試し済み')) badges.push('<span class="badge b-tried">試し済み</span>');
+      if (r.flags.has('保険条件')) badges.push('<span class="badge b-cond">保険で使う条件を満たさない可能性（要確認）</span>');
+
+      const excl = r.excluded
+        ? '<div class="excl-box"><strong>使えない可能性：</strong>' + r.exclReasons.map(esc).join('／') + '</div>'
+        : '';
+
+      const notes = (d.補足 && d.補足.length)
+        ? '<details><summary>補足・注意事項</summary><ul>' + d.補足.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></details>'
+        : '';
+
+      return '<article class="card ' + level + '" aria-label="' + esc(d.名前) + ' ' + r.score + '%">' +
+        '<div class="card-head">' +
+          '<div class="rank" aria-hidden="true">' + (r.excluded ? '－' : rank) + '</div>' +
+          '<div class="names"><h3>' + esc(d.名前) + ' <span class="brand">（' + esc(d.商品名) + '）</span></h3>' +
+          '<div class="class">' + esc(d.分類) + '</div></div>' +
+          '<div class="score"><span class="num">' + r.score + '</span><span class="pct">%</span><span class="lbl">条件に合う度合い</span></div>' +
+        '</div>' +
+        '<div class="bar" aria-hidden="true"><div class="bar-fill" style="width:' + r.score + '%"></div></div>' +
+        '<div class="badges">' + badges.join('') + '</div>' +
+        excl +
+        '<dl class="kv"><dt>用量の目安</dt><dd>' + esc(d.用量) + '</dd>' +
+        '<dt>保険の扱い</dt><dd>' + esc(d.保険.説明) + '</dd></dl>' +
+        '<h4>点数の内訳（加点・減点の理由）</h4>' +
+        '<ul class="reasons">' + r.reasons.map(reasonLine).join('') + '</ul>' +
+        '<h4>主な副作用</h4><p class="side">' + esc(d.副作用) + '</p>' +
+        notes +
+      '</article>';
+    }).join('');
+  }
+
+  function update() {
+    const inp = readInputs();
+    const results = calculate(inp);
+    renderAlerts(buildAlerts(inp));
+    renderCards(results);
+    const n = results.filter(function (r) { return r.excluded; }).length;
+    $('#status').textContent = DATA.薬.length + '種類の薬を評価しました' + (n ? '（うち' + n + '種類は使えない可能性）' : '') + '。';
+  }
+
+  // ---------- 入力をすべて消す ----------
+  function hasAnyInput() {
+    return $$('input', form).some(function (el) {
+      if (el.type === 'checkbox') return el.checked;
+      if (el.type === 'radio') return el.checked !== el.defaultChecked;
+      if (el.type === 'number') return el.value !== '';
+      return false;
+    });
+  }
+  function clearAll(skipConfirm) {
+    if (!skipConfirm && hasAnyInput() && !window.confirm('入力をすべて消します。よろしいですか？')) return;
+    form.reset();
+    update();
+    const first = $('#attacks');
+    if (first) first.focus();
+  }
+
+  // ---------- 動作確認用の例を入れる ----------
+  function fillSample(key) {
+    const s = SAMPLES[key];
+    if (!s) return;
+    form.reset();
+    $('#attacks').value = s.attacks;
+    $('#disabling').value = s.disabling;
+    $('#hdays').value = s.hdays;
+    $('#age').value = s.age;
+    const sev = form.querySelector('input[name=severity][value="' + s.severity + '"]');
+    if (sev) sev.checked = true;
+    const ac = form.querySelector('input[name=acute][value="' + s.acute + '"]');
+    if (ac) ac.checked = true;
+    s.conds.forEach(function (c) { const el = form.querySelector('input[data-cond="' + c + '"]'); if (el) el.checked = true; });
+    s.tried.forEach(function (id) { const el = form.querySelector('input[data-tried="' + id + '"]'); if (el) el.checked = true; });
+    update();
+  }
+
+  // ---------- イベント ----------
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  form.addEventListener('submit', function (e) { e.preventDefault(); update(); });
+  $('#clear-btn').addEventListener('click', function () { clearAll(false); });
+  $$('button[data-sample]').forEach(function (b) {
+    b.addEventListener('click', function () { fillSample(b.dataset.sample); });
+  });
+
+  // フッターの日付など
+  $('#updated').textContent = DATA.更新日;
+  $('#reviewed').textContent = DATA.医師確認;
+
+  // 試験用：ページの外（自動テスト）から計算を呼べるようにする。入力の保存には使いません
+  window.__migraineTool = { calculate: calculate, readInputs: readInputs, fillSample: fillSample, clearAll: clearAll, DATA: DATA };
+
+  update();
+})();
+</script>
+</body>
+</html>
